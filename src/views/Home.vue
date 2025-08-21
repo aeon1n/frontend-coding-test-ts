@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { reactive } from 'vue'
+import type { ShowExercises } from '../types/exercise.ts'
+
+const showExercise = reactive<ShowExercises>({
+  second: false,
+  third: false,
+})
+
+const showNextExercise = (exercise: keyof ShowExercises) => {
+  showExercise[exercise] = !showExercise[exercise]
+}
+</script>
+
 <template>
   <div class="justify-center max-w-md mt-10">
     <h1 class="font-extrabold tracking-tight text-3xl leading-10">
@@ -105,17 +119,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { reactive } from 'vue'
-import { ShowExercises } from '../types/exercise'
-
-const showExercise = reactive<ShowExercises>({
-  second: false,
-  third: false,
-})
-
-const showNextExercise = (exercise: keyof ShowExercises) => {
-  showExercise[exercise] = !showExercise[exercise]
-}
-</script>
