@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  breed: { type: String, required: true },
+  origin: { type: String, required: true },
+  src: { type: String, required: true },
+})
+</script>
 
 <template>
   <div
@@ -6,7 +12,7 @@
   >
     <div class="relative p-3">
       <img
-        src="https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        v-bind:src="src"
         alt="Photo of a dog"
         class="rounded-md max-h-50 w-full object-cover"
       />
@@ -32,8 +38,12 @@
       </div>
     </div>
     <div class="px-3 pb-3">
-      <h2 class="font-bold text-xl">Labrador Retriever</h2>
-      <h3 class="font-medium text-sm">Origin: Germany, France</h3>
+      <h2
+        class="font-bold text-xl hover:text-indigo-500 ease-in-out duration-150"
+      >
+        {{ props.breed }}
+      </h2>
+      <h3 class="font-medium text-sm">Origin: {{ origin }}</h3>
     </div>
   </div>
 </template>

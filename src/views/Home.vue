@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import BreedGrid from './../components/layout/BreedGrid.vue'
+import { inject } from 'vue'
+
+const toggleSidebar = inject<() => void>('toggleSidebar')
 </script>
 
 <template>
   <div class="w-full flex justify-between mb-6">
     <h1 class="text-2xl font-bold">Browse all Breeds</h1>
     <button
-      class="bg-neutral-200 py-1 px-3 rounded-lg flex items-center gap-2 font-semibold cursor-pointer hover:bg-neutral-400 ease-in-out duration-300"
+      class="lg:hidden bg-neutral-200 py-1 px-3 rounded-lg flex items-center gap-2 font-semibold cursor-pointer hover:bg-neutral-400 ease-in-out duration-300"
+      v-on:click="toggleSidebar?.()"
     >
       <i
         ><svg
