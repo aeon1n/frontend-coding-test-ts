@@ -1,4 +1,4 @@
-import { api } from '../utils'
+import { api } from '../utils.ts'
 import type { ApiResponse, Dog } from './../types/Dog'
 
 const LOCAL_STORAGE_KEY = 'dogs_cache'

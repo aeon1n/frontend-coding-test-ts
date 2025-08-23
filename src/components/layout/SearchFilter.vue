@@ -36,7 +36,7 @@ const dogSizes = [
         v-for="(dog, index) in dogTypes"
         v-bind:key="index"
         v-bind:class="{ 'bg-indigo-500 text-white': index % 2 !== 0 }"
-        class="py-1 px-2 border-2 rounded-full border-indigo-500 text-indigo-500 font-bold"
+        class="py-1 px-2 border-2 rounded-full border-indigo-500 text-indigo-500 font-bold ease-in-out duration-150 hover:cursor-pointer hover:bg-indigo-500 hover:text-white"
       >
         {{ dog }}
       </div>
