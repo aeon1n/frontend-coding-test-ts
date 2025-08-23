@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps({
   breed: { type: String, required: true },
-  origin: { type: String, required: true },
+  shortDesc: { type: String, required: true },
   src: { type: String, required: true },
 })
 </script>
@@ -43,7 +43,7 @@ const props = defineProps({
       >
         {{ props.breed }}
       </h2>
-      <h3 class="font-medium text-sm">Origin: {{ origin }}</h3>
+      <h3 class="font-medium text-sm truncate">{{ shortDesc }}</h3>
     </div>
   </div>
 </template>
