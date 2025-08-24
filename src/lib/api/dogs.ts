@@ -1,5 +1,7 @@
+import { useToast } from '../composables/useToast.ts'
 import { api } from '../utils.ts'
 import type { ApiResponse, Dog } from './../types/Dog'
+const { showToast } = useToast()
 
 const LOCAL_STORAGE_KEY = 'dogs_cache'
 
@@ -10,6 +12,7 @@ export async function getDogs(): Promise<Dog[]> {
       return JSON.parse(cached) as Dog[]
     } catch (err) {
       console.warn('invalid cache data')
+      showToast('Cache data invalid, reloading...', 'error')
     }
   }
   try {
@@ -33,9 +36,11 @@ export async function getDogs(): Promise<Dog[]> {
     }))
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(dogs))
+    showToast('Successfully fetched all breeds', 'success')
     return dogs
   } catch (error) {
     console.error('Error fetching dogs:', error)
+    showToast('Error while fetching dog breeds', 'error')
     return []
   }
 }
