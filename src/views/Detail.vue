@@ -56,7 +56,7 @@ onMounted(async () => {
         <div
           v-for="p in dog?.personalityTraits"
           v-bind:key="p"
-          class="bg-neutral-200 rounded-md p-3 font-bold"
+          class="bg-neutral-200 rounded-md p-3 font-bold truncate"
         >
           {{ p }}
         </div>

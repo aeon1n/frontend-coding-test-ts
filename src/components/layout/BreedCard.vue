@@ -15,7 +15,7 @@ const isLoaded = ref(false)
     v-bind:to="`/detail/${breed.toLowerCase().replace(/\s+/g, '-')}`"
   >
     <div
-      class="w-full bg-neutral-200 min-h-36 rounded-md overflow-hidden hover:cursor-pointer"
+      class="w-full bg-neutral-200 min-h-36 rounded-md overflow-hidden ease-in-out duration-150 hover:cursor-pointer hover:scale-102"
     >
       <div class="relative p-3">
         <div class="relative w-full aspect-[5/3] rounded-md overflow-hidden">
@@ -25,7 +25,7 @@ const isLoaded = ref(false)
           ></div>
           <img
             v-bind:src="src"
-            alt="Photo of a dog"
+            v-bind:alt="`Photo of a ${breed}`"
             class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
             v-bind:class="{ 'opacity-0': !isLoaded, 'opacity-100': isLoaded }"
             v-on:load="isLoaded = true"
