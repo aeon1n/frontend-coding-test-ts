@@ -8,6 +8,7 @@ import {
 import LayoutMain from '../components/layout/LayoutMain.vue'
 import Error from '../views/Error.vue'
 import Home from '../views/Home.vue'
+import Detail from '@/views/Detail.vue'
 
 const mainRoutes: RouteRecordRaw[] = [
   {
@@ -15,6 +16,12 @@ const mainRoutes: RouteRecordRaw[] = [
     name: 'Home',
     props: true,
     component: Home,
+  },
+  {
+    path: '/detail/:slug',
+    name: 'Detail',
+    props: true,
+    component: Detail,
   },
 ]
 
@@ -38,6 +45,9 @@ export default function initializeRouter(app: App): Router {
   const router: Router = createRouter({
     history: createWebHistory(),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+      return { top: 0 }
+    },
   })
 
   app.use(router)
