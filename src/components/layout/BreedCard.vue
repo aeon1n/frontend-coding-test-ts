@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const props = defineProps({
   breed: { type: String, required: true },
   shortDesc: { type: String, required: true },
   src: { type: String, required: true },
 })
+
+const isLoaded = ref(false)
 </script>
 
 <template>
@@ -14,11 +18,19 @@ const props = defineProps({
       class="w-full bg-neutral-200 min-h-36 rounded-md overflow-hidden hover:cursor-pointer"
     >
       <div class="relative p-3">
-        <img
-          v-bind:src="src"
-          alt="Photo of a dog"
-          class="rounded-md max-h-50 w-full object-cover"
-        />
+        <div class="relative w-full aspect-[5/3] rounded-md overflow-hidden">
+          <div
+            class="absolute inset-0 bg-neutral-300"
+            v-bind:class="{ 'opacity-0': isLoaded, 'opacity-100': !isLoaded }"
+          ></div>
+          <img
+            v-bind:src="src"
+            alt="Photo of a dog"
+            class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+            v-bind:class="{ 'opacity-0': !isLoaded, 'opacity-100': isLoaded }"
+            v-on:load="isLoaded = true"
+          />
+        </div>
         <div class="absolute top-6 right-6">
           <i class="text-white">
             <svg
@@ -42,7 +54,7 @@ const props = defineProps({
       </div>
       <div class="px-3 pb-3">
         <h2
-          class="font-bold text-xl hover:text-indigo-500 ease-in-out duration-150"
+          class="font-bold text-xl hover:text-indigo-500 ease-in-out duration-150 truncate"
         >
           {{ props.breed }}
         </h2>

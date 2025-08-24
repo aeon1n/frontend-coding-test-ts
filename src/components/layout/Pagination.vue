@@ -38,7 +38,7 @@ const visiblePages = computed(() => {
       v-bind:key="page"
       v-bind:class="{
         'bg-indigo-500 text-white': page === props.currentPage,
-        'bg-gray-200 hover:bg-indigo-500 hover:text-white':
+        'bg-neutral-200 hover:bg-indigo-500 hover:text-white':
           page !== props.currentPage,
         'py-1 px-3 rounded-md font-bold text-md ease-in-out duration-300 hover:cursor-pointer': true,
       }"
@@ -47,7 +47,7 @@ const visiblePages = computed(() => {
       {{ page }}
     </button>
     <button
-      class="bg-gray-200 py-1 px-3 rounded-md font-bold text-md ease-in-out duration-300 hover:cursor-pointer hover:bg-indigo-500 hover:text-white"
+      class="bg-neutral-200 py-1 px-3 rounded-md font-bold text-md ease-in-out duration-300 hover:cursor-pointer hover:bg-indigo-500 hover:text-white"
       v-bind:disabled="props.currentPage === props.totalPages"
       v-on:click="emit('change-page', props.currentPage + 1)"
     >

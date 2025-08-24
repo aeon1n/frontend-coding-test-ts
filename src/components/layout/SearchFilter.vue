@@ -79,7 +79,7 @@ const dogSizes = [
           placeholder="Min"
           class="w-full py-2 px-3 rounded-full bg-neutral-300 text-neutral-600 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
-        <span class="text-gray-700 font-semibold">cm</span>
+        <span class="text-neutral-600 font-semibold">cm</span>
       </div>
       <!-- Max Height -->
       <div class="flex items-center gap-1 flex-1 min-w-[80px]">
@@ -90,7 +90,7 @@ const dogSizes = [
           placeholder="Max"
           class="w-full py-2 px-3 rounded-full bg-neutral-300 text-neutral-600 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
-        <span class="text-gray-700 font-semibold">cm</span>
+        <span class="text-neutral-600 font-semibold">cm</span>
       </div>
     </div>
   </div>

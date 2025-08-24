@@ -9,7 +9,7 @@ const dogs = ref<Dog[]>([])
 
 const loading = ref(true)
 const currentPage = ref(1)
-const pageSize = 10
+const pageSize = 9
 
 onMounted(async () => {
   dogs.value = await getDogs()
@@ -34,7 +34,7 @@ function scrollToTop() {
     <div role="status">
       <svg
         aria-hidden="true"
-        class="w-8 h-8 text-gray-200 animate-spin fill-indigo-500"
+        class="w-8 h-8 text-neutral-200 animate-spin fill-indigo-500"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ function scrollToTop() {
   </div>
   <div
     v-else-if="dogs.length === 0"
-    class="w-full py-12 text-center text-gray-500"
+    class="w-full py-12 text-center text-neutral-600"
   >
     No dog breeds found 🐶
   </div>
