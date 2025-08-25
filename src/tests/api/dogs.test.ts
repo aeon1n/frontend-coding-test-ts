@@ -49,6 +49,7 @@ describe('getDogs', () => {
   })
 
   it('returns empty array on fetch error', async () => {
+    localStorage.removeItem('dogs_cache')
     vi.mocked(fetch).mockRejectedValue(new Error('Network error'))
 
     const dogs = await getDogs()

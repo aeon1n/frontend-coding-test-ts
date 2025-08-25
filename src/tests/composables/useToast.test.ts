@@ -1,9 +1,13 @@
 import { useToast } from '@/lib/composables/useToast.ts'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 describe('useToast', () => {
-  it('adds a toast with type success', () => {
-    const { toasts, showToast } = useToast()
+  const { toasts, showToast } = useToast()
 
+  beforeEach(() => {
+    toasts.value = []
+  })
+
+  it('adds a toast with type success', () => {
     showToast('Hello World', 'success')
 
     expect(toasts.value.length).toBe(1)
@@ -15,7 +19,6 @@ describe('useToast', () => {
 
   it('removes a toast automatically after 3s', () => {
     vi.useFakeTimers()
-    const { toasts, showToast } = useToast()
 
     showToast('Will disappear', 'success')
 
